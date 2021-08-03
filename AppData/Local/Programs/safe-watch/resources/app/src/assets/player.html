@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safe Watch</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" >
+    <script>
+        const {remote} = require("electron");
+        const {ipcRenderer} = require("electron");
+        const playerManager = remote.getGlobal('playerManager');
+        ipcRenderer.on('hide-cursor', () => {
+            document.body.style.cursor = 'none';
+        });
+        let clickCount = 0;
+        function mouseMove() {
+            document.body.style.cursor = 'auto';
+            playerManager.mouseMoveOnPlayer();
+        }
+
+        function playerClick() {
+            if (clickCount === 0) {
+                setTimeout(() => {
+                    playerManager.videoClick(clickCount);
+                    clickCount = 0;
+                }, 300);
+            }
+            clickCount++;
+        }
+    </script>
+</head>
+<body style="background-color: black; width: 100vw; height: 100vh; overflow: hidden" onmousemove="mouseMove()" onmouseenter="mouseMove()" onclick="playerClick()">
+</body>
+</html>

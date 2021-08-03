@@ -1,0 +1,37 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+
+function provjeriJmbg (JMBG){
+	if (JMBG.length==13){
+		for(var i=0;i<13;i++) {
+		if (!Number.isInteger(parseInt(JMBG[i]))){
+				alert("jmbg nije dobar , nisu svi brojevi");
+				return false;
+		}
+		}
+		var dani = JMBG.substring(0,2);
+		var mjesec= JMBG.substring(2,4);
+		if(dani<=31 && dani >0 && mjesec>0 && mjesec <=12){
+		alert("tocno unesen jmbg ")
+	    return true;
+		}
+		else {
+		alert(" jmbg nije valjan, provjerite jesu li dani i mjeseci dobro uneseni ");
+		return false;
+		}
+}
+	else{
+	alert("jmbg nije dobar ,nema 13 znakova ");
+	return false;
+	}
+	}
+var jmbg = prompt("Unesite jmbg");
+provjeriJmbg(jmbg);
+</script>
+
+
+</body>
+
+</html>

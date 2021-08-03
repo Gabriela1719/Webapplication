@@ -1,0 +1,24 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+function Ispis(){
+var ocjena = document.getElementById("ocjena").value;
+if(ocjena== "" ) alert("Molimo unesite ocjenu");
+else if (ocjena == 1)alert("nedovoljan");
+else if (ocjena == 2 )alert("dovoljan ");
+else if (ocjena == 3 )alert("dobar ");
+else if (ocjena == 4 )alert("vrlodobar ");
+else if (ocjena == 5 )alert("odlican ");
+else alert("niste unijeli dobru ocjenu ");
+
+ }
+</script>
+<form>
+ <input type="number" id="ocjena"/> ocjena <br><br>
+ <input type="submit" value="PotvrdiOcjenu" id="sub0" onclick="Ispis()" />
+ </form>
+
+</body>
+
+</html>

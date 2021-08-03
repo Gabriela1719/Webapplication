@@ -1,0 +1,49 @@
+
+<html>
+<head></head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+<script>
+$(document).ready(function(){
+ $("form").submit(function(){
+ var table=document.createElement('table');
+ table.id="tabi";
+ table.border="5px";
+var i=0,j;
+	var brojRedaka= parseInt($("#redak").val());
+	var brojStupaca= parseInt($("#stupac").val());
+	
+     for ( i=0;i<brojRedaka;i++){
+
+	table.insertRow(i);
+	 for(j=0;j<brojStupaca-1;j++){
+	 table.rows[i].insertCell(j).innerHTML=0;;
+	 }
+
+	}
+
+	
+	document.body.appendChild(table);
+	return false;
+});
+
+
+
+
+});
+
+</script>
+<form>
+<input type="text" name="red" id="redak"/>
+<input type="text" name="stupac" id="stupac"/>
+<button>KREIRAJ</button>
+<div id="ispis"></div>
+</form>
+
+
+
+
+</div>
+</body>
+
+</html>
